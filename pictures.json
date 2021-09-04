@@ -1,0 +1,21 @@
+[
+    [
+        {
+            "file": "selfPortrait.png",
+            "title": "LobstrHandz self portrait",
+            "size": "s"
+        }
+    ],
+    [
+        {
+            "file": "theWindow.gif",
+            "title": "The window",
+            "size": "s"
+        },
+        {
+            "file": "reqularEndScreen.gif",
+            "title": "Regular end screen",
+            "size": "l"
+        }
+    ]
+]

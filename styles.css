@@ -1,0 +1,97 @@
+@font-face {
+    font-family: "PressStart2P";
+    src: url(./assets/PressStart2P.ttf) format("opentype");
+}
+
+body{
+    margin: 0;
+    background: url(./assets/background.png);
+    background-size: 10%;
+    font-family: PressStart2P;
+}
+
+.flex-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plaque {
+    color: rgb(60, 60, 60);
+    text-shadow: 2px 2px 1px rgb(120, 120, 120);
+    /* For reference, change for image */
+    background: rgb(160, 160, 160);
+    border: 12px ridge rgb(120, 120, 120);
+}
+
+h1 {
+    margin: 24px 0;
+    padding: 48px;
+}
+
+.nav-menu {
+    padding: 24px;
+}
+
+.nav-menu span.current-page,
+.nav-menu span:hover {
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+}
+
+.nav-menu span:not(.current-page):active {
+    color: transparent;
+    text-shadow: 2px 2px 1px rgb(80, 80, 80);
+}
+
+.nav-menu span:not(:first-child) {
+    margin-left: 12px;
+}
+
+#container {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.picture-container {
+    margin: 68px;
+}
+
+.picture {
+    height: 180px;
+    background-size: contain !important;
+}
+
+.picture:hover {
+    cursor: pointer;
+}
+
+.picture-s {
+    width: 180px;
+}
+
+.picture-l {
+    width: 320px;
+}
+
+.picture-s::before {
+    content: '';
+    position: absolute;
+    height: 220px;
+    width: 220px;
+    margin: -20px;
+    background: url(./assets/border-s.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.picture-l::before {
+    content: '';
+    position: absolute;
+    height: 220px;
+    width: 360px;
+    margin: -20px;
+    background: url(./assets/border-l.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
