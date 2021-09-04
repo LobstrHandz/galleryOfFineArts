@@ -54,44 +54,18 @@ h1 {
 }
 
 .picture-container {
-    margin: 68px;
+    margin: 48px;
 }
 
 .picture {
-    height: 180px;
+    margin: 48px;
     background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border: 20px solid goldenrod;
+    border-image: url(./assets/border-pattern.png) 33% round;
 }
 
 .picture:hover {
     cursor: pointer;
-}
-
-.picture-s {
-    width: 180px;
-}
-
-.picture-l {
-    width: 320px;
-}
-
-.picture-s::before {
-    content: '';
-    position: absolute;
-    height: 220px;
-    width: 220px;
-    margin: -20px;
-    background: url(./assets/border-s.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.picture-l::before {
-    content: '';
-    position: absolute;
-    height: 220px;
-    width: 360px;
-    margin: -20px;
-    background: url(./assets/border-l.png);
-    background-repeat: no-repeat;
-    background-size: contain;
 }

@@ -3,19 +3,28 @@
         {
             "file": "selfPortrait.png",
             "title": "LobstrHandz self portrait",
-            "size": "s"
+            "size": {
+                "x": 0,
+                "y": 0
+            }
         }
     ],
     [
         {
             "file": "theWindow.gif",
             "title": "The window",
-            "size": "s"
+            "size": {
+                "x": 0,
+                "y": 0
+            }
         },
         {
             "file": "reqularEndScreen.gif",
             "title": "Regular end screen",
-            "size": "l"
+            "size": {
+                "x": 0,
+                "y": 0
+            }
         }
     ]
 ]
