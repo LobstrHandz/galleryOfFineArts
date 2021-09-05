@@ -17,20 +17,30 @@ body{
 }
 
 .plaque {
-    color: rgb(60, 60, 60);
+    padding: 3px 6px;
+    color: rgb(80, 80, 80);
+    text-align: center;
     text-shadow: 2px 2px 1px rgb(120, 120, 120);
-    /* For reference, change for image */
-    background: rgb(160, 160, 160);
-    border: 12px ridge rgb(120, 120, 120);
+    background:rgb(148, 148, 148);
+    border: 10px solid rgb(60, 60, 60);
+    border-image: url(./assets/border-plaque.png) 33% stretch;
+}
+
+.plaque-medium {
+    padding: 6px 12px;
+    border-width: 20px;
+}
+
+.plaque-large {
+    padding: 12px 24px;
+    border-width: 40px;
 }
 
 h1 {
     margin: 24px 0;
-    padding: 48px;
 }
 
 .nav-menu {
-    padding: 24px;
 }
 
 .nav-menu span.current-page,
@@ -54,11 +64,14 @@ h1 {
 }
 
 .picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 48px;
 }
 
 .picture {
-    margin: 48px;
+    margin: 48px 48px 12px;
     background-size: contain !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -68,4 +81,9 @@ h1 {
 
 .picture:hover {
     cursor: pointer;
+}
+
+.picture-caption {
+    width: fit-content;
+    font-size: 10px;
 }
