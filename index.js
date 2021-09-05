@@ -84,6 +84,22 @@
                         x: 256,
                         y: 256
                     }
+                },
+                {
+                    file: 'theFish.gif',
+                    title: 'The fish',
+                    size: {
+                        x: 256,
+                        y: 256
+                    }
+                },
+                {
+                    file: 'turdWave.gif',
+                    title: 'Turd wave',
+                    size: {
+                        x: 256,
+                        y: 256
+                    }
                 }
             // ]
         ]
