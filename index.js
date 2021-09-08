@@ -180,6 +180,7 @@
     }
 
     const containter = document.querySelector('#container');
+    const fullSizeView = document.querySelector('#fill-size-container');
 
     function createNavMenu() {
         const navMenu = document.querySelector('#nav-menu');
@@ -196,7 +197,7 @@
     }
 
     function getNavLinkEventHandler(pageName) {
-        return function() {
+        return () => {
             document.querySelector('.current-page').classList.remove('current-page');
             document.querySelector(`#${pageName}-page-link`).classList.add('current-page');
             fillContainer(pageName);
@@ -218,6 +219,11 @@
             pictureElement.src = `./pictures/${picture.file}`;
             pictureElement.height = picture.size.y;
             pictureElement.width = picture.size.x;
+            pictureElement.onclick = () => {
+                fullSizeView.children[0].src = `./pictures/${picture.file}`;
+                fullSizeView.classList.remove('hidden');
+                document.body.classList.add('full-view-enabled');
+            }
             plaque.classList.add('plaque', 'picture-caption');
             plaque.innerText = picture.title;
 
@@ -229,4 +235,8 @@
 
     createNavMenu();
     fillContainer('pictues');
+    fullSizeView.onclick = () => {
+        fullSizeView.classList.add('hidden');
+        document.body.classList.remove('full-view-enabled');
+    }
 }());
