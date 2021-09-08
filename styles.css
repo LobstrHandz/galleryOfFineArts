@@ -40,21 +40,18 @@ h1 {
     margin: 24px 0;
 }
 
-.nav-menu {
-}
-
-.nav-menu span.current-page,
-.nav-menu span:hover {
+#nav-menu span.current-page,
+#nav-menu span:hover {
     color: rgb(100, 100, 100);
     cursor: pointer;
 }
 
-.nav-menu span:not(.current-page):active {
+#nav-menu span:not(.current-page):active {
     color: transparent;
     text-shadow: 2px 2px 1px rgb(80, 80, 80);
 }
 
-.nav-menu span:not(:first-child) {
+#nav-menu span:not(:first-child) {
     margin-left: 12px;
 }
 

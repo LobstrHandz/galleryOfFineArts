@@ -102,13 +102,111 @@
                     }
                 }
             // ]
+        ],
+        screens: [
+            {
+                file: "regularStartScreen.gif",
+                title: "Regular stream start",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "regularBrbScreen.gif",
+                title: "Regular BRB",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "reqularEndScreen.gif",
+                title: "Regular stream end",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "batmanStartScreen.gif",
+                title: "Batman stream start",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "batmanBrbScreen.gif",
+                title: "Batman BRB",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "starWarsStartScreen.gif",
+                title: "Star wars stream start",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "starWarsBrbScreen.gif",
+                title: "Star wars BRB",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "mgsStartScreen.gif",
+                title: "Metal gear solid stream start",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            },
+            {
+                file: "mgsBrbScreen.gif",
+                title: "Metal gear solid BRB",
+                size: {
+                    x: 480,
+                    y: 270
+                }
+            }
         ]
     }
 
     const containter = document.querySelector('#container');
 
+    function createNavMenu() {
+        const navMenu = document.querySelector('#nav-menu');
+
+        for(let key in PICTURES) {
+            let link = document.createElement('span');
+            link.id=`${key}-page-link`;
+            link.innerText = key[0].toUpperCase() + key.slice(1);
+            link.onclick = getNavLinkEventHandler(key);
+            navMenu.appendChild(link);
+        }
+
+        navMenu.children[0].classList.add('current-page');
+    }
+
+    function getNavLinkEventHandler(pageName) {
+        return function() {
+            document.querySelector('.current-page').classList.remove('current-page');
+            document.querySelector(`#${pageName}-page-link`).classList.add('current-page');
+            fillContainer(pageName);
+        }
+    }
+
     function fillContainer(pageName) {
         const pageContent = PICTURES[pageName];
+
+        container.innerHTML = '';
 
         for (let picture of pageContent) {
             let pictureContainer = document.createElement('div');
@@ -129,5 +227,6 @@
         }
     }
 
+    createNavMenu();
     fillContainer('pictues');
 }());
