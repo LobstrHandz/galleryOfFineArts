@@ -238,5 +238,6 @@
     fullSizeView.onclick = () => {
         fullSizeView.classList.add('hidden');
         document.body.classList.remove('full-view-enabled');
+        fullSizeView.children[0].src = '';
     }
 }());
