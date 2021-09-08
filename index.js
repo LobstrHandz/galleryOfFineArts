@@ -120,14 +120,14 @@
                     y: 270
                 }
             },
-            {
-                file: "reqularEndScreen.gif",
-                title: "Regular stream end",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            },
+            // {
+            //     file: "reqularEndScreen.gif",
+            //     title: "Regular stream end",
+            //     size: {
+            //         x: 480,
+            //         y: 270
+            //     }
+            // },
             {
                 file: "batmanStartScreen.gif",
                 title: "Batman stream start",
