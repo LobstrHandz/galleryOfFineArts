@@ -100,82 +100,126 @@
                         x: 256,
                         y: 256
                     }
+                },
+                {
+                    file: 'batkittoPortrait.gif',
+                    title: 'Batkitto portrait',
+                    size: {
+                        x: 256,
+                        y: 256
+                    }
+                },
+                {
+                    file: 'batmanGetsANightSnack.gif',
+                    title: 'Batman gets a night snack',
+                    size: {
+                        x: 256,
+                        y: 256
+                    }
+                },
+                {
+                    file: 'kingOfTheHill.gif',
+                    title: 'King of the hill',
+                    size: {
+                        x: 256,
+                        y: 256
+                    }
                 }
             // ]
         ],
         screens: [
-            {
-                file: "regularStartScreen.gif",
-                title: "Regular stream start",
-                size: {
-                    x: 480,
-                    y: 270
+            // [
+                {
+                    file: "regularStartScreen.gif",
+                    title: "Regular stream start",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "regularBrbScreen.gif",
+                    title: "Regular BRB",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "regularEndScreen.gif",
+                    title: "Regular stream end",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+            // ],
+            // [
+                {
+                    file: "batmanStartScreen.gif",
+                    title: "Batman stream start",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "batmanBrbScreen.gif",
+                    title: "Batman BRB",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "starWarsStartScreen.gif",
+                    title: "Star wars stream start",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "starWarsBrbScreen.gif",
+                    title: "Star wars BRB",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "mgsStartScreen.gif",
+                    title: "Metal gear solid stream start",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "mgsBrbScreen.gif",
+                    title: "Metal gear solid BRB",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "alienStartScreen.gif",
+                    title: "Alien: Isolation stream start",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "alienBrbScreen.gif",
+                    title: "Alien: Isolation BRB",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
                 }
-            },
-            {
-                file: "regularBrbScreen.gif",
-                title: "Regular BRB",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            },
-            // {
-            //     file: "reqularEndScreen.gif",
-            //     title: "Regular stream end",
-            //     size: {
-            //         x: 480,
-            //         y: 270
-            //     }
-            // },
-            {
-                file: "batmanStartScreen.gif",
-                title: "Batman stream start",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            },
-            {
-                file: "batmanBrbScreen.gif",
-                title: "Batman BRB",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            },
-            {
-                file: "starWarsStartScreen.gif",
-                title: "Star wars stream start",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            },
-            {
-                file: "starWarsBrbScreen.gif",
-                title: "Star wars BRB",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            },
-            {
-                file: "mgsStartScreen.gif",
-                title: "Metal gear solid stream start",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            },
-            {
-                file: "mgsBrbScreen.gif",
-                title: "Metal gear solid BRB",
-                size: {
-                    x: 480,
-                    y: 270
-                }
-            }
+            // ]
         ]
     }
 
