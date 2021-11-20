@@ -218,6 +218,22 @@
                         x: 480,
                         y: 270
                     }
+                },
+                {
+                    file: "darkSoulsStartScreen.gif",
+                    title: "Dark Souls stream start",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
+                },
+                {
+                    file: "darkSoulsBrbScreen.gif",
+                    title: "Dark Souls BRB",
+                    size: {
+                        x: 480,
+                        y: 270
+                    }
                 }
             // ]
         ]
