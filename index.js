@@ -124,6 +124,14 @@
                         x: 256,
                         y: 256
                     }
+                },
+                {
+                    file: 'theWraith.gif',
+                    title: 'The wraith',
+                    size: {
+                        x: 256,
+                        y: 312
+                    }
                 }
             // ]
         ],
