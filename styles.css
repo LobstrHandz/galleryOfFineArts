@@ -65,6 +65,14 @@ h1 {
     flex-wrap: wrap;
 }
 
+.picture-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .picture-container {
     display: flex;
     flex-direction: column;

@@ -136,7 +136,7 @@
             // ]
         ],
         screens: [
-            // [
+            [
                 {
                     file: "regularStartScreen.gif",
                     title: "Regular stream start",
@@ -161,8 +161,8 @@
                         y: 270
                     }
                 },
-            // ],
-            // [
+            ],
+            [
                 {
                     file: "batmanStartScreen.gif",
                     title: "Batman stream start",
@@ -178,7 +178,9 @@
                         x: 480,
                         y: 270
                     }
-                },
+                }
+            ],
+            [
                 {
                     file: "starWarsStartScreen.gif",
                     title: "Star wars stream start",
@@ -194,7 +196,9 @@
                         x: 480,
                         y: 270
                     }
-                },
+                }
+            ],
+            [
                 {
                     file: "mgsStartScreen.gif",
                     title: "Metal gear solid stream start",
@@ -210,7 +214,9 @@
                         x: 480,
                         y: 270
                     }
-                },
+                }
+            ],
+            [
                 {
                     file: "alienStartScreen.gif",
                     title: "Alien: Isolation stream start",
@@ -226,7 +232,9 @@
                         x: 480,
                         y: 270
                     }
-                },
+                }
+            ],
+            [
                 {
                     file: "darkSoulsStartScreen.gif",
                     title: "Dark Souls stream start",
@@ -243,7 +251,7 @@
                         y: 270
                     }
                 }
-            // ]
+            ]
         ]
     }
 
@@ -274,32 +282,51 @@
 
     function fillContainer(pageName) {
         const pageContent = PICTURES[pageName];
-
         container.innerHTML = '';
 
-        for (let picture of pageContent) {
-            let pictureContainer = document.createElement('div');
-            let pictureElement = document.createElement('img');
-            let plaque = document.createElement('span');
-
-            pictureContainer.classList.add('picture-container');
-            pictureElement.classList.add('picture');
-            pictureElement.src = `./pictures/${picture.file}`;
-            pictureElement.height = picture.size.y;
-            pictureElement.width = picture.size.x;
-            pictureElement.onclick = () => {
-                fullSizeView.children[0].src = `./pictures/${picture.file}`;
-                fullSizeView.classList.remove('hidden');
-                document.body.classList.add('full-view-enabled');
+        for (let item of pageContent) {
+            if (Array.isArray(item)) {
+                renderRow(item);
+            } else {
+                renderPicture(item, container);
             }
-            plaque.classList.add('plaque', 'picture-caption');
-            plaque.innerText = picture.title;
-
-            pictureContainer.appendChild(pictureElement);
-            pictureContainer.appendChild(plaque);
-            containter.appendChild(pictureContainer);
         }
     }
+
+    function renderPicture(pictureData, parent) {
+        let pictureContainer = document.createElement('div');
+        let pictureElement = document.createElement('img');
+        let plaque = document.createElement('span');
+
+        pictureContainer.classList.add('picture-container');
+        pictureElement.classList.add('picture');
+        pictureElement.src = `./pictures/${pictureData.file}`;
+        pictureElement.height = pictureData.size.y;
+        pictureElement.width = pictureData.size.x;
+        pictureElement.onclick = () => {
+            fullSizeView.children[0].src = `./pictures/${pictureData.file}`;
+            fullSizeView.classList.remove('hidden');
+            document.body.classList.add('full-view-enabled');
+        }
+        plaque.classList.add('plaque', 'picture-caption');
+        plaque.innerText = pictureData.title;
+
+        pictureContainer.appendChild(pictureElement);
+        pictureContainer.appendChild(plaque);
+        parent.appendChild(pictureContainer);
+    }
+
+    function renderRow(row) {
+        const rowElement = document.createElement('div');
+        rowElement.classList.add('picture-row');
+
+        for (let item of row) {
+            renderPicture(item, rowElement);
+        }
+
+        container.appendChild(rowElement)
+    }
+
 
     createNavMenu();
     fillContainer('pictues');
