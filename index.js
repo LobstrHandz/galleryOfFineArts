@@ -1,5 +1,11 @@
 (function() {
+    const container = document.querySelector('#container');
     const fullSizeView = document.querySelector('#fill-size-container');
+    const fullSizePicture = document.querySelector('#fill-size-picture');
+
+    const contentURL = 'https://cloud.squidex.io/api/content/lobstrhandzgallery';
+    const assetsURL = 'https://cloud.squidex.io/api/assets/lobstrhandzgallery';
+
     let currentSection = '';
 
     function setLoadingState(isLoading) {
@@ -27,11 +33,12 @@
         });
     }
 
-    function parseResponse(response) {
-        return response.items?.map(({ data }) => {
+    function parseResponse({ items }) {
+        return items?.map(({ id, data }) => {
             let result = {};
 
             for (const key in data) {
+                result.id = id;
                 result[key] = data[key].iv;
             }
 
@@ -44,33 +51,85 @@
         console.log(message);
     }
 
-    function navLinkEventHandler(pageName) {
+    function createPictureBlock({ image, title, height, width }) {
+        let pictureContainer = document.createElement('div');
+        let pictureElement = document.createElement('img');
+        let plaque = document.createElement('span');
+
+        pictureContainer.classList.add('picture-container');
+        pictureElement.classList.add('picture');
+        pictureElement.src = `${assetsURL}/${image[0]}`;
+        pictureElement.height = height;
+        pictureElement.width = width;
+        pictureElement.onclick = () => {
+            fullSizePicture.src = `${assetsURL}/${image[0]}`;
+            fullSizeView.classList.remove('hidden');
+            document.body.classList.add('full-view-enabled');
+        }
+        plaque.classList.add('plaque', 'picture-caption');
+        plaque.innerText = title;
+
+        pictureContainer.appendChild(pictureElement);
+        pictureContainer.appendChild(plaque);
+        container.appendChild(pictureContainer);
+    }
+
+    function getPictures(pageId) {
+        const sectionFilterQuery = JSON.stringify({
+            filter: {
+                path: 'data.section.iv',
+                op: 'eq',
+                value: pageId
+            }
+        })
+        setLoadingState(true);
+
+        getRequest(`${contentURL}/pictures?q=${encodeURI(sectionFilterQuery)}`)
+        .then((response) => {
+            const pictures = parseResponse(response);
+            container.innerHTML = '';
+
+            for (let picture of pictures) {
+                createPictureBlock(picture);
+            }
+
+            setLoadingState(false);
+        }, () => handleError('Something went wrong'));
+    }
+
+    function navLinkEventHandler(pageId) {
         return () => {
             document.querySelector('.current-page')?.classList.remove('current-page');
-            document.querySelector(`#${pageName}-page-link`).classList.add('current-page');
-            currentSection = pageName;
-            // fillContainer(pageName);
+            document.querySelector(`#page-link-${pageId}`).classList.add('current-page');
+            currentSection = pageId;
+            getPictures(pageId);
         }
     }
 
     function createNavMenu(sections) {
         const navMenuBlock = document.querySelector('#nav-menu');
 
-        for(const {title} of sections) {
+        for(const {id, title} of sections) {
             let link = document.createElement('a');
-            link.id=`${title}-page-link`;
+            link.id=`page-link-${id}`;
             link.innerText = title.toUpperCase();
-            link.onclick = navLinkEventHandler(title);
+            link.onclick = navLinkEventHandler(id);
             navMenuBlock.appendChild(link);
         }
 
-        navLinkEventHandler(sections[0].title)();
+        navLinkEventHandler(sections[0].id)();
     }
 
-    function init() {        
+    function init() {
         setLoadingState(true);
 
-        getRequest('https://cloud.squidex.io/api/content/lobstrhandzgallery/sections')
+        fullSizeView.onclick = () => {
+            fullSizeView.classList.add('hidden');
+            document.body.classList.remove('full-view-enabled');
+            fullSizePicture.src = '';
+        }
+
+        getRequest(`${contentURL}/sections`)
         .then((response) => {
             const sections = parseResponse(response).sort((a, b) => a.sortingOrder > b.sortingOrder ? 1 : -1);
             createNavMenu(sections);
@@ -79,63 +138,4 @@
 
 
     init();
-
-
-
-
-    // function fillContainer(pageName) {
-    //     // const pageContent = PICTURES[pageName];
-    //     // container.innerHTML = '';
-
-    //     // for (let item of pageContent) {
-    //     //     if (Array.isArray(item)) {
-    //     //         renderRow(item);
-    //     //     } else {
-    //     //         renderPicture(item, container);
-    //     //     }
-    //     // }
-    // }
-
-    // function renderPicture(pictureData, parent) {
-    //     let pictureContainer = document.createElement('div');
-    //     let pictureElement = document.createElement('img');
-    //     let plaque = document.createElement('span');
-
-    //     pictureContainer.classList.add('picture-container');
-    //     pictureElement.classList.add('picture');
-    //     pictureElement.src = `./pictures/${pictureData.file}`;
-    //     pictureElement.height = pictureData.size.y;
-    //     pictureElement.width = pictureData.size.x;
-    //     pictureElement.onclick = () => {
-    //         fullSizeView.children[0].src = `./pictures/${pictureData.file}`;
-    //         fullSizeView.classList.remove('hidden');
-    //         document.body.classList.add('full-view-enabled');
-    //     }
-    //     plaque.classList.add('plaque', 'picture-caption');
-    //     plaque.innerText = pictureData.title;
-
-    //     pictureContainer.appendChild(pictureElement);
-    //     pictureContainer.appendChild(plaque);
-    //     parent.appendChild(pictureContainer);
-    // }
-
-    // function renderRow(row) {
-    //     const rowElement = document.createElement('div');
-    //     rowElement.classList.add('picture-row');
-
-    //     for (let item of row) {
-    //         renderPicture(item, rowElement);
-    //     }
-
-    //     container.appendChild(rowElement)
-    // }
-
-
-    // createNavMenu();
-    // fillContainer('pictues');
-    // fullSizeView.onclick = () => {
-    //     fullSizeView.classList.add('hidden');
-    //     document.body.classList.remove('full-view-enabled');
-    //     fullSizeView.children[0].src = '';
-    // }
 }());
