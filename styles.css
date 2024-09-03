@@ -16,9 +16,18 @@ body.full-view-enabled {
 }
 
 .flex-middle {
+    max-width: 1280px;
+}
+
+.flex-middle,
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.wrapper {
+    flex-direction: column;
 }
 
 .plaque {
@@ -56,19 +65,11 @@ h1 {
 }
 
 #nav-menu a:not(:first-child) {
-    margin-left: 12px;
+    margin-left: 24px;
 }
 
 #container {
     justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.picture-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -80,7 +81,7 @@ h1 {
 }
 
 .picture {
-    margin: 48px 48px 12px;
+    margin-bottom: 12px;
     background-size: contain !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
