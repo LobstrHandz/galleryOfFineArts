@@ -45,18 +45,17 @@ h1 {
     margin: 24px 48px;
 }
 
-#nav-menu span.current-page,
-#nav-menu span:hover {
+#nav-menu a {
     color: rgb(100, 100, 100);
+}
+
+#nav-menu a.current-page,
+#nav-menu a:hover {
+    color: rgb(80, 80, 80);
     cursor: pointer;
 }
 
-#nav-menu span:not(.current-page):active {
-    color: transparent;
-    text-shadow: 2px 2px 1px rgb(80, 80, 80);
-}
-
-#nav-menu span:not(:first-child) {
+#nav-menu a:not(:first-child) {
     margin-left: 12px;
 }
 
