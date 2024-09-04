@@ -80,13 +80,14 @@ h1 {
     margin: 48px;
 }
 
-.picture {
+.picture-wrapper {
     margin-bottom: 12px;
-    background-size: contain !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    border: 20px solid goldenrod;
+    border: 20px solid;
     border-image: url(./assets/border-pattern.png) 33% round;
+}
+
+.picture {
+    background: #fff2d3;
 }
 
 .picture:hover {
@@ -98,8 +99,11 @@ h1 {
     font-size: 10px;
 }
 
-#fill-size-container {
+#full-size-container {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     height: 100vh;
     width: 100vw;
@@ -107,7 +111,16 @@ h1 {
     transition: opacity 0.5s;
 }
 
-#fill-size-container.hidden {
+#full-size-container.hidden {
     opacity: 0;
     pointer-events: none;
+}
+
+#full-size-picture-wrapper {
+    border: 60px solid;
+    border-image: url(./assets/border-pattern.png) 33% round;
+}
+
+#full-size-picture {
+    background: #fff2d3;
 }

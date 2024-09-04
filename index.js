@@ -1,7 +1,7 @@
 (function() {
     const container = document.querySelector('#container');
-    const fullSizeView = document.querySelector('#fill-size-container');
-    const fullSizePicture = document.querySelector('#fill-size-picture');
+    const fullSizeView = document.querySelector('#full-size-container');
+    const fullSizePicture = document.querySelector('#full-size-picture');
 
     const contentURL = 'https://cloud.squidex.io/api/content/lobstrhandzgallery';
     const assetsURL = 'https://cloud.squidex.io/api/assets/lobstrhandzgallery';
@@ -53,10 +53,12 @@
 
     function createPictureBlock({ image, title, height, width }) {
         let pictureContainer = document.createElement('div');
+        let pictureWrapper = document.createElement('div');
         let pictureElement = document.createElement('img');
         let plaque = document.createElement('span');
 
         pictureContainer.classList.add('picture-container');
+        pictureWrapper.classList.add('picture-wrapper');
         pictureElement.classList.add('picture');
         pictureElement.src = `${assetsURL}/${image[0]}`;
         pictureElement.height = height;
@@ -69,7 +71,8 @@
         plaque.classList.add('plaque', 'picture-caption');
         plaque.innerText = title;
 
-        pictureContainer.appendChild(pictureElement);
+        pictureWrapper.appendChild(pictureElement);
+        pictureContainer.appendChild(pictureWrapper);
         pictureContainer.appendChild(plaque);
         container.appendChild(pictureContainer);
     }
