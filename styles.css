@@ -54,7 +54,15 @@ h1 {
     margin: 24px 48px;
 }
 
+#nav-menu {
+    margin: 0 88px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #nav-menu a {
+    margin: 8px 0;
     color: rgb(100, 100, 100);
 }
 
